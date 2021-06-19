@@ -6,6 +6,7 @@ const apiBook = require('./api/book');
 
 
 //Derivo las rutas
+router.use('/author', apiAuthor);
 router.use('/authors', apiAuthor);
 router.use('/book', apiBook);
 router.use('/books', apiBook);

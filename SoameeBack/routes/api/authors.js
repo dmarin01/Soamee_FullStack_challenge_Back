@@ -1,9 +1,11 @@
 const router = require('express').Router();
 
 
-router.get('/:id', (req, res) => {
-    res.json('funciona author')
+router.get('/', (req, res) => {
+    res.json('funciona authors')
 })
+
+
 
 
 
