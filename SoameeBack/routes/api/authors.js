@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { getAll } = require('../../models/authors.model')
+const { getAllAuthors } = require('../../models/authors.model')
 
 router.get('/', async (req, res) => {
     try {
-        const rows = await getAll();
+        const rows = await getAllAuthors();
         res.json(rows)
     } catch (err) {
         res.json({ error: err.massage })

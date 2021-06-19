@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { getById } = require('../../models/author.model');
+const { getByIdAuthor } = require('../../models/author.model');
 
 router.get('/:id', (req, res) => {
-    getById(req.params.id)
+    getByIdAuthor(req.params.id)
         .then(result => {
             res.json(result)
         })
