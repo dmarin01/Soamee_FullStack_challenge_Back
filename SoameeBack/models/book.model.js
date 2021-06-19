@@ -7,6 +7,15 @@ const getByIdBook = (id) => {
     })
 }
 
+const createBook = ({ name, isbn, fk_author }) => {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO book (name, isbn, fk_author) VALUES (?,?,?);', [name, isbn, fk_author], (err, row) => {
+            if (err) reject(err);
+            resolve(row)
+        })
+    })
+}
 
 
-module.exports = { getByIdBook }
+
+module.exports = { getByIdBook, createBook }

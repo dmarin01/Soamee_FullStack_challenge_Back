@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getByIdAuthor } = require('../../models/author.model');
+const { getByIdAuthor, createAuthor } = require('../../models/author.model');
 
 router.get('/:id', (req, res) => {
     getByIdAuthor(req.params.id)
@@ -8,8 +8,17 @@ router.get('/:id', (req, res) => {
         })
         .catch(error => {
             res.json({ error: error.massage })
-        })
-})
+        });
+});
+
+router.post('/', (req, res) => {
+    createAuthor(req.body)
+        .then(result => {
+            res.json(result)
+        }).catch(err => {
+            res.json({ error: err.massage })
+        });
+});
 
 
 

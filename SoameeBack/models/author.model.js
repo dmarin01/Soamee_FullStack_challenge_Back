@@ -1,5 +1,5 @@
 
-const getById = (id) => {
+const getByIdAuthor = (id) => {
     return new Promise((resolve, reject) => {
         db.query('SELECT * FROM soamee_bbdd.author WHERE id = ?', [id], (err, row) => {
             if (err) reject(err);
@@ -9,5 +9,15 @@ const getById = (id) => {
 }
 
 
+const createAuthor = ({ first_name, last_name }) => {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO author (first_name, last_name) VALUES (?,?);', [first_name, last_name], (err, row) => {
+            if (err) reject(err);
+            resolve(row)
+        })
+    })
+}
 
-module.exports = { getById }
+
+
+module.exports = { getByIdAuthor, createAuthor }
