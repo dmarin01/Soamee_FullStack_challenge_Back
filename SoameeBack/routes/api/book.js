@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getByIdBook, createBook } = require('../../models/book.model');
+const { getByIdBook, createBook, updateBook } = require('../../models/book.model');
 
 router.get('/:id', (req, res) => {
     getByIdBook(req.params.id)
@@ -13,6 +13,16 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     createBook(req.body)
+        .then(result => {
+            res.json(result)
+        })
+        .catch(err => {
+            res.json({ error: err.massage })
+        });
+});
+
+router.put('/:id', (req, res) => {
+    updateBook(req.params.id, req.body)
         .then(result => {
             res.json(result)
         })

@@ -24,7 +24,7 @@ POST http://localhost:3000/api/author
 Content-Type: application/json
 
 {
-    "first_name": "Rudyard",
+    "first_name": "Joseph Rudyard",
     "last_name": "Kipling"
     
 }
@@ -44,7 +44,24 @@ Content-Type: application/json
 ########### PUT AUTHOR Y BOOK  ###########################
 
 #### Updates an existing author - Expects a JSON body
-PUT http://localhost:3000/api/author/:id
+PUT http://localhost:3000/api/author/3
+Content-Type: application/json
+
+{
+    "first_name": "Paulo",
+    "last_name": "Coelho de Souza"
+        
+}
+
 
 ### Updates an existing book
-PUT http://localhost:3000/api/book/:id 
+PUT http://localhost:3000/api/book/11
+Content-Type: application/json
+
+{
+    "name": "Crepusculo",
+    "isbn": "9788420469287",
+    "fk_author": 5
+    
+}
+
